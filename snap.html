@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinity Snap</title>
+<link rel="stylesheet" href="snap.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="stones" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <h1>Infinity Snap</h1>
+  </div>
+  <div class="chips">
+    <span class="chip" id="chipHand"><b></b>Hand</span>
+    <span class="chip" id="chipBody"><b></b>Body</span>
+    <span class="chip" id="chipRoom"><b></b>Room <em id="roomPct">0%</em></span>
+  </div>
+</header>
+
+<main>
+  <section class="stage" id="stage">
+    <canvas id="view"></canvas>
+    <video id="cam" playsinline muted></video>
+
+    <div class="hud" id="hud" hidden>
+      <div class="line" id="status">Loading…</div>
+      <div class="hint" id="hint"></div>
+    </div>
+    <div class="flash" id="flash"></div>
+
+    <div class="gate" id="gate">
+      <div class="gate-inner">
+        <div class="glyph" aria-hidden="true"></div>
+        <h2>Reality is often disappointing.</h2>
+        <p>Point your camera at any room. Snap your fingers. Only <em>you</em> turn to dust &mdash; the room stays exactly as it is.</p>
+        <button class="primary" id="btnStart">Wake the camera</button>
+        <p class="fine" id="gateMsg">Everything runs on your device. No video leaves this page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dock" id="dock" aria-label="Controls">
+    <div class="row main">
+      <button class="primary" id="btnSnap" title="Trigger manually (Space)">Snap</button>
+      <button id="btnBack" title="Bring yourself back">Bring me back</button>
+      <button id="btnScan" title="Forget the room and learn it again">Re-scan room</button>
+      <button id="btnRec" title="Record a clip">&#9679; Record</button>
+      <button id="btnFull" title="Fullscreen (F)">Fullscreen</button>
+    </div>
+    <div class="row opts">
+      <label>Trigger
+        <select id="selMode">
+          <option value="both">Finger snap or fist</option>
+          <option value="snap">Finger snap only</option>
+          <option value="fist">Clenched fist only</option>
+          <option value="off">Manual only</option>
+        </select>
+      </label>
+      <label>Sensitivity
+        <input type="range" id="rngSens" min="0.6" max="1.8" step="0.05" value="1">
+      </label>
+      <label>Duration
+        <input type="range" id="rngDur" min="2" max="9" step="0.5" value="4.5">
+      </label>
+      <label class="chk"><input type="checkbox" id="chkSound"> Listen for audible snap</label>
+      <label class="chk"><input type="checkbox" id="chkFx" checked> Sound FX</label>
+      <label class="chk"><input type="checkbox" id="chkMirror" checked> Mirror</label>
+      <label class="chk"><input type="checkbox" id="chkDebug"> Show hand tracking</label>
+    </div>
+    <p class="tips">
+      <b>For a clean vanish:</b> keep the camera still and steady the lighting.
+      The extension memorises the room whenever you are out of the way &mdash; step aside for a couple of seconds
+      (watch <i>Room</i> climb) so there is a real background to reveal instead of a guessed one.
+    </p>
+  </section>
+</main>
+
+<script src="lib/selfie_segmentation.js"></script>
+<script src="lib/hands.js"></script>
+<script src="effect.js"></script>
+<script src="gesture.js"></script>
+<script src="snap.js"></script>
+</body>
+</html>
