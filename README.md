@@ -1,6 +1,6 @@
 # Infinity Snap
 
-A Chromium browser extension that lets you **snap your fingers and turn to purple dust** on your own camera feed, while the room around you stays exactly as it is.
+A browser extension that lets you **snap your fingers and turn to purple dust** on your own camera feed, while the room around you stays exactly as it is.
 
 Only you disappear. The walls, furniture and everything else in the background remain the untouched live camera image.
 
